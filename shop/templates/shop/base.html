@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %}My shop{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link  href="{% static 'shop/base.css' %}" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/" >My Shop</a>
+        <div class="cart"  >
+            {% with total_items=cart|length %}
+            {% if cart|length > 0 %}
+            <h6>Your cart:</h6>
+            <a href="{%	url	'cart:cart_detail' %}">
+            {{ total_items }} item{{ total_items|pluralize }},
+            ${{ cart.get_total_price }}
+            </a>
+            {% else %}
+            <h6>Your cart is empty.</h6>
+            {% endif %}
+            {% endwith %}
+         </div>
+      </nav>
+    <div id="subheader">   
+     </div>
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+</body>
+</html>
