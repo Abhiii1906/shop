@@ -13,3 +13,4 @@ Werkzeug==1.0.1
 django-storages==1.11.1
 widgetsnbextension==3.5.1
 zipp==3.1.0
+Brotli==1.0.9

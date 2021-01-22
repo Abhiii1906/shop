@@ -14,13 +14,13 @@
         <div class="cart"  >
             {% with total_items=cart|length %}
             {% if cart|length > 0 %}
-            <h6>Your cart:</h6>
+            <h6 style="color: yellow;">Your cart:</h6>
             <a href="{%	url	'cart:cart_detail' %}">
             {{ total_items }} item{{ total_items|pluralize }},
             ${{ cart.get_total_price }}
             </a>
             {% else %}
-            <h6>Your cart is empty.</h6>
+            <h6 style="color: yellow;">Your cart is empty.</h6>
             {% endif %}
             {% endwith %}
          </div>
